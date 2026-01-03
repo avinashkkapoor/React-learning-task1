@@ -1,52 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Counter from "./Counter";
-import SearchForm from "./SearchForm";
-import GenreSelect from "./GenreSelect";
+import {Counter} from "./Counter";
+import {SearchForm} from "./SearchForm";
+import {GenreSelect} from "./GenreSelect";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+export const App =() => {
+  const [selectedGenre, setSelectedGenre] = React.useState("Action");
 
-    this.state = {
-      selectedGenre: "Action"
-    };
-
-    this.handleGenreSelect = this.handleGenreSelect.bind(this);
-    this.handleSearch = this.handleSearch.bind(this);
-  }
-
-  handleGenreSelect(genre) {
+  const handleGenreSelect=(genre)=> {
     console.log("Genre selected:", genre);
-    this.setState({ selectedGenre: genre });
+    setSelectedGenre(genre);
   }
 
-  handleSearch(query) {
+  const handleSearch=(query) => {
     console.log("Search query:", query);
   }
 
-  render() {
-    return React.createElement(
-      "div",
-      null,
-      React.createElement(Counter, { initialValue: 5 }),
-      React.createElement(SearchForm, {
-        initialQuery: "React",
-        onSearch: this.handleSearch
-      }),
-      React.createElement(GenreSelect, {
-        genres: ["Action", "Comedy", "Drama", "Sci-Fi"],
-        selectedGenre: this.state.selectedGenre,
-        onSelect: this.handleGenreSelect
-      })
-    );
-  }
+  return(
+    <div>
+      <Counter />
+      <SearchForm initialQuery="React" onSearch={handleSearch} />
+      <GenreSelect 
+        genres={["Action", "Comedy", "Drama", "Sci-Fi"]} 
+        selectedGenre={selectedGenre} 
+        onSelect={handleGenreSelect} 
+      />
+    </div>
+
+  )
 }
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-root.render(React.createElement(App));
+root.render(<App />);

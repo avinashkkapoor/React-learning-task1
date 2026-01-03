@@ -1,41 +1,24 @@
 import React from "react";
 
-class GenreSelect extends React.Component {
+export const GenreSelect = (props) => {
+    // const genres = this.props.genres || [];
 
-    constructor(props) {
-    super(props);
-
-    this.handleSelect = this.handleSelect.bind(this);
-  }
-
-  handleSelect(genre) {
-    if (typeof this.props.onSelect === "function") {
-      this.props.onSelect(genre);
+    const handleSelect = (genre) => {
+        if (typeof props.onSelect === "function") {
+            props.onSelect(genre);
+        }
     }
-  }
 
-    render() {
-         const genres = this.props.genres || [];
-    const selectedGenre = this.props.selectedGenre;
+    const selectedGenre = props.selectedGenre;
+    return (
 
-    return React.createElement(
-      "div",
-      null,
-      genres.map((genre) =>
-        React.createElement(
-          "button",
-          {
-            key: genre,
-            onClick: () => this.handleSelect(genre),
-            style: {
-              fontWeight: genre === selectedGenre ? "bold" : "normal",
-              marginRight: "8px"
-            }
-          },
-          genre
-        )
-      )
+        <div>
+            {props.genres.map((genre) => (
+                <button key={genre} onClick={() => handleSelect(genre)}
+                    style={{ fontWeight: genre === selectedGenre ? "bold" : "normal", marginRight: "8px" }}>
+                    {genre}
+                </button>
+            ))}
+        </div>
     );
-    }
 }
-export default GenreSelect;
