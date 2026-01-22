@@ -21,6 +21,7 @@ export const SearchForm = ({ initialQuery, onSearch }) => {
     return(
         <div>
             <input 
+                placeholder="search-text"
                 type="text" 
                 value={query} 
                 onChange={handleChange} 
