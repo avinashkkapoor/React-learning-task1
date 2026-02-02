@@ -1,4 +1,5 @@
 import React from "react";
+import "./GenreSelect.css";
 
 export const GenreSelect = (props) => {
     // const genres = this.props.genres || [];
@@ -12,7 +13,7 @@ export const GenreSelect = (props) => {
     const selectedGenre = props.selectedGenre;
     return (
 
-        <div>
+        <div className="genre-select">
             {props.genres.map((genre) => (
                 <button key={genre} onClick={() => handleSelect(genre)}
                     style={{ fontWeight: genre === selectedGenre ? "bold" : "normal", marginRight: "8px" }}>

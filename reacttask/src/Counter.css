@@ -1,0 +1,80 @@
+#Counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4);
+    max-width: 300px;
+    margin: 2rem auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#Counter h2 {
+    margin: 0 0 1.5rem 0;
+    font-size: 3.5rem;
+    color: white;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+#Counter button {
+    width: 60px;
+    height: 60px;
+    margin: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+}
+
+#Counter button:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#Counter button:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+#Counter button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#Counter button[data-testid="decrement-button"] {
+    order: 1;
+}
+
+#Counter button[data-testid="increment-button"] {
+    order: 2;
+}
+
+@media (max-width: 600px) {
+    #Counter {
+        padding: 1.5rem;
+        max-width: 280px;
+    }
+
+    #Counter h2 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    #Counter button {
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem;
+        margin: 0.4rem;
+    }
+}

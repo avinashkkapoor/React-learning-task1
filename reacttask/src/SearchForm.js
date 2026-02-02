@@ -1,4 +1,5 @@
 import React from "react";
+import "./SearchForm.css";
 
 export const SearchForm = ({ initialQuery, onSearch }) => {
     const [query, setQuery] = React.useState(initialQuery || "");
@@ -19,7 +20,7 @@ export const SearchForm = ({ initialQuery, onSearch }) => {
         }
     };
     return(
-        <div>
+        <div className="search-form">
             <input 
                 placeholder="search-text"
                 type="text" 

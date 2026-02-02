@@ -1,0 +1,61 @@
+.genre-select {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 1.5rem auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.genre-select button {
+    padding: 0.6rem 1.2rem;
+    background-color: white;
+    color: #333;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.genre-select button:hover {
+    background-color: #f0f0f0;
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.genre-select button:active {
+    transform: translateY(0);
+}
+
+.genre-select button[style*="bold"] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: #667eea;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    font-weight: 700;
+}
+
+.genre-select button[style*="bold"]:hover {
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .genre-select {
+        padding: 1rem;
+        max-width: 100%;
+    }
+
+    .genre-select button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}

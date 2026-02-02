@@ -1,0 +1,233 @@
+.task-menu-container {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.task-menu {
+    width: 280px;
+    background: linear-gradient(180deg, #2d3436 0%, #000000 100%);
+    padding: 0;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.menu-title {
+    padding: 2rem 1.5rem 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    border-bottom: 2px solid #667eea;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.menu-item {
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    background: none;
+    border: none;
+    border-left: 4px solid transparent;
+    color: #adb5bd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.menu-item:hover {
+    background-color: rgba(102, 126, 234, 0.1);
+    color: white;
+    border-left-color: #667eea;
+    padding-left: 1.75rem;
+}
+
+.menu-item.active {
+    background: linear-gradient(90deg, rgba(102, 126, 234, 0.3) 0%, transparent 100%);
+    color: white;
+    border-left-color: #667eea;
+    padding-left: 1.75rem;
+    font-weight: 600;
+}
+
+.menu-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: block;
+}
+
+.menu-description {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    display: block;
+}
+
+.menu-item.active .menu-description {
+    opacity: 1;
+    color: #667eea;
+}
+
+.task-content {
+    margin-left: 280px;
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task-content-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.task-title {
+    font-size: 2.5rem;
+    color: #2d3436;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-section {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.task-section h2 {
+    color: #2d3436;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #667eea;
+}
+
+.selected-info {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+/* Scrollbar styling */
+.task-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.task-menu::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+.task-menu::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 4px;
+}
+
+.task-menu::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .task-menu-container {
+        flex-direction: column;
+    }
+
+    .task-menu {
+        width: 100%;
+        height: auto;
+        position: static;
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-title {
+        flex-shrink: 0;
+        padding: 1rem 1.5rem;
+        border-bottom: none;
+        border-right: 2px solid #667eea;
+    }
+
+    .menu-item {
+        flex-shrink: 0;
+        border-left: none;
+        border-bottom: 4px solid transparent;
+        padding: 1rem 1.5rem;
+    }
+
+    .menu-item:hover,
+    .menu-item.active {
+        border-left: none;
+        border-bottom-color: #667eea;
+        padding-left: 1.5rem;
+    }
+
+    .menu-description {
+        display: none;
+    }
+
+    .task-content {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .task-title {
+        font-size: 1.8rem;
+    }
+
+    .task-section {
+        padding: 1.5rem;
+    }
+
+    .task-section h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .task-menu {
+        flex-direction: row;
+    }
+
+    .menu-item {
+        padding: 0.75rem 1rem;
+    }
+
+    .menu-label {
+        font-size: 0.9rem;
+    }
+
+    .task-content {
+        padding: 0.75rem;
+    }
+
+    .task-section {
+        padding: 1rem;
+    }
+}
