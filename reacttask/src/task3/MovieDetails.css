@@ -1,0 +1,241 @@
+.movie-details-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: fadeIn 0.3s ease;
+    padding: 1rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.movie-details-container {
+    background: white;
+    border-radius: 12px;
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-button {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    color: #2d3436;
+    z-index: 2001;
+}
+
+.close-button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+}
+
+.movie-details-content {
+    display: flex;
+    gap: 3rem;
+    padding: 3rem;
+}
+
+.details-image-section {
+    flex-shrink: 0;
+}
+
+.details-image {
+    width: 280px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.details-info-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.details-title {
+    margin: 0 0 1.5rem 0;
+    font-size: 2.5rem;
+    color: #2d3436;
+    line-height: 1.2;
+}
+
+.details-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-label {
+    font-size: 0.85rem;
+    color: #999;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.meta-value {
+    font-size: 1.1rem;
+    color: #2d3436;
+    font-weight: 500;
+}
+
+.meta-value.rating {
+    font-size: 1.25rem;
+    color: #667eea;
+    font-weight: 600;
+}
+
+.star {
+    color: #ffc107;
+    margin-right: 0.25rem;
+}
+
+.details-description {
+    flex: 1;
+}
+
+.details-description h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.3rem;
+    color: #2d3436;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.details-description p {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Scrollbar styling */
+.movie-details-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.movie-details-container::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+}
+
+.movie-details-container::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+}
+
+.movie-details-container::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .movie-details-content {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 1.5rem;
+    }
+
+    .details-image-section {
+        display: flex;
+        justify-content: center;
+    }
+
+    .details-image {
+        width: 240px;
+        height: 340px;
+    }
+
+    .details-title {
+        font-size: 1.8rem;
+    }
+
+    .details-meta {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .close-button {
+        top: 1rem;
+        right: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-details-container {
+        max-height: 95vh;
+        border-radius: 12px 12px 0 0;
+    }
+
+    .movie-details-content {
+        gap: 1.5rem;
+        padding: 1.5rem 1rem;
+    }
+
+    .details-image {
+        width: 180px;
+        height: 260px;
+    }
+
+    .details-title {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .details-description p {
+        font-size: 0.9rem;
+    }
+}
